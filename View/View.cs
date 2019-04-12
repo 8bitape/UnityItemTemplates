@@ -1,27 +1,16 @@
-﻿using UniRx;
-using UniRxEventAggregator.Events;
-using UnityEngine;
-using UnityValidation.Attributes;
-using UnityValidation.Extensions;
-
-namespace $rootnamespace$
+﻿namespace Views
 {
-    public class $safeitemname$ : PubSubMonoBehaviour
+    public class $safeitemname$ : View<$safeitemname$>
     {
         [SerializeField]
         private object _backingField = null;
 
-        [RequiredProperty]
         public object Property { get { return this._backingField; } }
 
-        private void Awake()
+        public override bool IsValid()
         {
-            if (!this.IsValidObject())
-            {
-                return;
-            }
-
-            this.Register(new BehaviorSubject<$safeitemname$>(this));
+            return base.IsValid() &&
+                this.Property != null;
         }
     }
 }

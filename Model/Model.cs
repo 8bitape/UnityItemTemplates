@@ -1,23 +1,20 @@
-﻿using UniRx;
-using UnityEngine;
-using UnityValidation.Attributes;
-using UnityValidation.Extensions;
+﻿using Data;
+using UniRx;
 
-namespace $rootnamespace$
+namespace Models
 {
     public class $safeitemname$ : IModel<Data>
     {
-        [RequiredProperty]
-        public ReactiveProperty<object> ReactiveProperty { get; set; }
+        public ReactiveProperty<object> Property { get; set; } = new ReactiveProperty<object>();
 
         public void Init(Data data)
         {
-            if (!data.IsValidObject())
+            if (!data.IsValid())
             {
                 return;
             }
 
-            this.ReactiveProperty = new ReactiveProperty<object>(data.Property);
+            this.Property.Value = data.Property;
         }
     }
 }

@@ -1,27 +1,16 @@
-﻿using UniRxEventAggregator.Events;
-using UnityValidation.Attributes;
-using UnityValidation.Extensions;
+﻿using Models;
+using States;
+using Views;
 
-namespace $rootnamespace$
+namespace Presenters
 {
-    public class $safeitemname$ : PubSubMonoBehaviour
+    public class $safeitemname$ : Presenter<View, Model, State>
     {
-        [RequiredProperty]
-        private Model Model { get; set; }
-
-        [RequiredProperty]
-        private View View { get; set; }
-
-        private void Awake()
+        protected override void Start()
         {
-            this.Subscribe<Model>(x => this.Model = x);
+            base.Start();
 
-            this.Subscribe<View>(x => this.View = x);
-        }
-
-        private void Start()
-        {
-            if (!this.IsValidObject())
+            if (!this.IsValid())
             {
                 return;
             }

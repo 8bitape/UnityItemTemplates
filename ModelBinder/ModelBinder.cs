@@ -1,6 +1,9 @@
-﻿namespace Components
+﻿using Data;
+using Models;
+
+namespace ModelBinders
 {
-    public class $safeitemname$ : BaseComponent
+    public class $safeitemname$ : ModelBinder<Data, Model>
     {
         protected override void Start()
         {
@@ -11,7 +14,7 @@
                 return;
             }
 
-            // Setup subscriptions
+            // Add components
         }
     }
 }

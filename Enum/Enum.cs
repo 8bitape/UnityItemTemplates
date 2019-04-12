@@ -1,4 +1,4 @@
-﻿namespace $rootnamespace$
+﻿namespace Enums
 {
     public enum $safeitemname$
     {

@@ -1,4 +1,4 @@
-﻿namespace $rootnamespace$
+﻿namespace Events
 {
     public class $safeitemname$
     {

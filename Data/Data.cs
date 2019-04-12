@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityValidation.Attributes;
 
-namespace $rootnamespace$
+namespace Data
 {
     [CreateAssetMenu(fileName = "$safeitemrootname$", menuName = "$safeitemrootname$")]
     public class $safeitemname$ : Data<$safeitemname$>
@@ -9,7 +8,12 @@ namespace $rootnamespace$
         [SerializeField]
         private object _backingField = null;
 
-        [RequiredProperty]
         public object Property { get { return this._backingField; } }
+
+        public override bool IsValid()
+        {
+            return base.IsValid() &&
+                this.Property != null;
+        }
     }
 }

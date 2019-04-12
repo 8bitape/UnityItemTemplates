@@ -1,16 +1,22 @@
-﻿using UniRxEventAggregator.Events;
-using UnityEngine;
-using UnityValidation.Attributes;
+﻿using PubSubMonoBehaviours;
+using States;
 
-namespace $rootnamespace$
+namespace Components
 {
-    public class $safeitemname$ : PubSubMonoBehaviour
+    public abstract class $safeitemname$ : StateEnabledPubSubMonoBehaviour<State>
     {
-        [RequiredProperty, ValidateObject]
         protected Model Model { get; set; }
 
-        protected void Awake()
+        public override bool IsValid()
         {
+            return base.IsValid() &&
+                this.Model != null;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
             this.Subscribe<Model>(x => this.Model = x);
         }
     }
