@@ -1,6 +1,6 @@
 ﻿namespace Events
 {
-    public class $safeitemname$
+    public struct $safeitemname$
     {
         public object Property { get; private set; }
 
