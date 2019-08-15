@@ -1,9 +1,9 @@
-﻿using PubSubMonoBehaviours;
-using States;
+﻿using Models;
+using PubSubMonoBehaviours;
 
 namespace Components
 {
-    public abstract class $safeitemname$ : StateEnabledPubSubMonoBehaviour<State>
+    public abstract class $safeitemname$ : StateEnabledPubSubMonoBehaviour
     {
         protected Model Model { get; set; }
 

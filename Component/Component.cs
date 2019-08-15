@@ -1,17 +1,21 @@
-﻿namespace Components
+﻿using UniRx;
+
+namespace Components
 {
     public class $safeitemname$ : BaseComponent
     {
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
-
             if (!this.IsValid())
             {
                 return;
             }
-
-            // Setup subscriptions
+            
+            this.OnUpdate()
+                .Subscribe(_ =>
+                {
+                    
+                });
         }
     }
 }
