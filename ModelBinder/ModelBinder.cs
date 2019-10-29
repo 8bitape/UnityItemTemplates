@@ -14,7 +14,7 @@ namespace ModelBinders
                 return;
             }
 
-            // Add components
+            this.gameObject.AddHiddenComponent<Component>();
         }
     }
 }
